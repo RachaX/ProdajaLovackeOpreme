@@ -1,0 +1,60 @@
+﻿<Application x:Class="ProdavnicaLovackeOpreme.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:ProdavnicaLovackeOpreme"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:vms="clr-namespace:ProdavnicaLovackeOpreme.ViewModels"
+             xmlns:views="clr-namespace:ProdavnicaLovackeOpreme.Views"
+             xmlns:uc="clr-namespace:ProdavnicaLovackeOpreme.UserControls"
+             xmlns:u="clr-namespace:ProdavnicaLovackeOpreme.Util">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+                <materialDesign:CustomColorTheme BaseTheme="Light" ColorAdjustment="{materialDesign:ColorAdjustment}" PrimaryColor="#6AA360" SecondaryColor="#0085B8"/>
+                <ResourceDictionary Source="Dictionary/Dictionary-en.xaml"/>
+                <ResourceDictionary Source="Dictionary/Dictionary-sr.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+
+            <FontFamily x:Key="AppFont">Arial</FontFamily>
+            <Style TargetType="Control">
+                <Setter Property="FontFamily" Value="{DynamicResource AppFont}" />
+            </Style>
+
+            <DataTemplate DataType="{x:Type vms:SettingsViewModel}">
+                <uc:SettingsUserControl/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vms:AddProductViewModel}">
+                <uc:AddProductUserControl/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vms:SupplierProductsViewModel}">
+                <uc:SupplierProductsUserControl/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vms:OfferViewModel}">
+                <uc:CreateOfferUserControl/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vms:ViewProductsViewModel}">
+                <uc:ViewProductsUserControl/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vms:CreateBillViewModel}">
+                <uc:CreateBillUserControl/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vms:ViewWorkersViewModel}">
+                <uc:ViewWorkersUserControl/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vms:CreateReportViewModel}">
+                <uc:CreateReportUserControl/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vms:AddStorageViewModel}">
+                <uc:AddStorageUserControl/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vms:ViewOffersViewModel}">
+                <uc:ViewOffersUserControl/>
+            </DataTemplate>
+
+            <u:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

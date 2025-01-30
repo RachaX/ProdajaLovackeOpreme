@@ -1,0 +1,47 @@
+﻿<UserControl x:Class="ProdavnicaLovackeOpreme.UserControls.AddProductUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:local="clr-namespace:ProdavnicaLovackeOpreme.UserControls"
+             mc:Ignorable="d" 
+             FontFamily="{DynamicResource AppFont}"
+             d:DesignHeight="450" d:DesignWidth="800">
+    <materialDesign:Card Background="{DynamicResource MaterialDesignPaper}">
+        <Grid Margin="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="0" FontSize="30" Text="{DynamicResource addProduct}" FontWeight="Bold"/>
+            <StackPanel Grid.Row="1" Grid.Column="0">
+                <TextBox Margin="5 30 5 0" FontSize="18" materialDesign:HintAssist.Hint="{DynamicResource productName}" BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}" Style="{StaticResource MaterialDesignOutlinedTextBox}" Text="{Binding ProductName}"/>
+                <TextBox Margin="5 20 5 0" FontSize="18" materialDesign:HintAssist.Hint="{DynamicResource productPrice}" BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}" Style="{StaticResource MaterialDesignOutlinedTextBox}" Text="{Binding ProductPrice}"/>
+                <TextBlock FontSize="14" FontWeight="SemiBold" Text="{DynamicResource productCategory}" Margin="5 20 0 0"/>
+                <ComboBox Margin="5 10 5 0" FontSize="18" Style="{StaticResource MaterialDesignOutlinedComboBox}" ItemsSource="{Binding Categories}" SelectedItem="{Binding ProductCategory}"/>
+            </StackPanel>
+
+            <StackPanel Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Top">
+                <Border Margin="0 30 0 0"  Width="250" Height="250" BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}" CornerRadius="5" Background="{DynamicResource MaterialDesignPaper}">
+                    <Image Stretch="Uniform" Source="{Binding ProductImage}" />
+                </Border>
+                <Button Content="{DynamicResource selectImage}" Margin="5 20 5 0" Style="{StaticResource MaterialDesignFlatMidBgButton}" Command="{Binding ChooseImageCommand}" materialDesign:ElevationAssist.Elevation="Dp4" />
+            </StackPanel>
+
+            <StackPanel Margin="0 30 0 0" Grid.Row="1" Grid.Column="2">
+                <TextBox Height="180" FontSize="16" materialDesign:HintAssist.Hint="{DynamicResource productDescription}" BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}" Style="{StaticResource MaterialDesignOutlinedTextBox}" ScrollViewer.VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" Text="{Binding ProductDescription}"/>
+            </StackPanel>
+
+            <Button Grid.Column="2" Grid.Row="2" Content="{DynamicResource addNewProduct}"  Style="{StaticResource MaterialDesignFlatMidBgButton}" materialDesign:ElevationAssist.Elevation="Dp4" Command="{Binding AddProductCommand}"/>
+        </Grid>
+    </materialDesign:Card>
+</UserControl>

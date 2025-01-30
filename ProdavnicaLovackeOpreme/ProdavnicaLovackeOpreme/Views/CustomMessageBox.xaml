@@ -1,0 +1,41 @@
+﻿<Window x:Class="ProdavnicaLovackeOpreme.Views.CustomMessageBox"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="CustomMessageBox" Height="400" Width="500"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        Background="{x:Null}"
+        AllowsTransparency="True"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen"
+        FontFamily="{DynamicResource AppFont}">
+    <materialDesign:Card UniformCornerRadius="15" 
+    Background="{DynamicResource MaterialDesignPaper}" 
+    Margin="20" materialDesign:ElevationAssist.Elevation="Dp4">
+        <StackPanel Margin="20">
+            <TextBlock x:Name="TitleText" FontSize="24" FontWeight="Bold" 
+                       TextWrapping="Wrap" TextAlignment="Center" Margin="0 0 0 20" Text="{Binding Title}"/>
+
+            <TextBlock x:Name="MessageText" FontSize="18" HorizontalAlignment="Center"
+                       TextWrapping="Wrap" Margin="0 20 0 20" Text="{Binding Message}"/>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 150 0 0">
+                <Button x:Name="OkButton" Content="{DynamicResource OkButton}" Style="{StaticResource MaterialDesignFlatButton}"
+                        Width="100" Margin="10" Height="40" FontSize="16"
+                        Visibility="Collapsed" Command="{Binding OkCommand}"/>
+                <Button x:Name="YesButton" Content="{DynamicResource YesButton}" Style="{StaticResource MaterialDesignFlatButton}"
+                        Width="100" Margin="10" Height="40" FontSize="16"
+                        Visibility="Collapsed" Command="{Binding YesCommand}"/>
+                <Button x:Name="NoButton" Content="{DynamicResource NoButton}" Style="{StaticResource MaterialDesignFlatButton}"
+                        Width="100" Margin="10" Height="40" FontSize="16"
+                        Visibility="Collapsed" Command="{Binding NoCommand}"/>
+                <Button x:Name="CancelButton" Content="{DynamicResource CancelButton}" Style="{StaticResource MaterialDesignFlatButton}"
+                        Width="100" Margin="10" Height="40" FontSize="16"
+                        Visibility="Collapsed" Command="{Binding CancelCommand}"/>
+            </StackPanel>
+        </StackPanel>
+    </materialDesign:Card>
+</Window>
